@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Text;
 
-namespace Common {
-  public class MyArray<T> {
+namespace Common.DataTypes {
+  public class Array<T> {
     private T[] data;
 
-    public MyArray() : this(10) { }
+    public Array() : this(10) { }
 
-    public MyArray(int capacity) {
+    public Array(int capacity) {
       if (capacity < 1) {
         throw new ArgumentException("Invalid capacity");
       }
@@ -22,7 +22,19 @@ namespace Common {
       get { return data.Length; }
     }
 
+    public bool IsEmpty {
+      get { return Size == 0; }
+    }
+
     #region Find and Update
+
+    public T First {
+      get { return this[0]; }
+    }
+
+    public T Last {
+      get { return this[Size - 1]; }
+    }
 
     public int IndexOf(T el) {
       for (var i = 0; i < Size; i++) {
@@ -92,6 +104,14 @@ namespace Common {
       }
     }
 
+    public T RemoveFirst() {
+      return RemoveAt(0);
+    }
+
+    public T RemoveLast() {
+      return RemoveAt(Size - 1);
+    }
+
     public T RemoveAt(int index) {
       if (index < 0 || index > Size - 1) {
         throw new ArgumentOutOfRangeException(nameof(index));
@@ -112,15 +132,17 @@ namespace Common {
 
     public override string ToString() {
       var sb = new StringBuilder();
-      sb.Append('[');
+      sb.Append("Array [");
 
-      for(var i = 0; i < Size; i++) {
+      for (var i = 0; i < Size; i++) {
         if (i == Size - 1) {
-          sb.AppendFormat("{0}]", data[i]);
+          sb.AppendFormat("{0}", data[i]);
         } else {
           sb.AppendFormat("{0}, ", data[i]);
         }
       }
+
+      sb.Append("]");
 
       return sb.ToString();
     }

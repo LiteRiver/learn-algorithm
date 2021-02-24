@@ -1,17 +1,16 @@
 using System;
-using System.Linq;
 using NUnit.Framework;
-using Common;
+using Common.DataTypes;
 
 namespace Common.Test {
-  public class Tests {
+  public class ArrayTest {
     [SetUp]
     public void Setup() {
     }
 
     [Test]
     public void TestAdd() {
-      var arr = new MyArray<int>();
+      var arr = new Array<int>();
 
       arr.Add(0, 101);
       arr.AddFirst(9);
@@ -30,7 +29,7 @@ namespace Common.Test {
 
     [Test]
     public void TestRemove() {
-      var arr = new MyArray<int>();
+      var arr = new Array<int>();
       for (var i = 0; i < 10; i++) {
         arr.AddLast(i);
       }
@@ -54,7 +53,7 @@ namespace Common.Test {
 
     [Test]
     public void TestUpdate() {
-      var arr = new MyArray<int>();
+      var arr = new Array<int>();
       arr.AddLast(1);
       arr.AddLast(2);
       arr.AddLast(3);
@@ -76,7 +75,7 @@ namespace Common.Test {
     [Test]
     public void TestShrink() {
       var cap = 5;
-      var arr = new MyArray<int>(cap);
+      var arr = new Array<int>(cap);
       for (var i = 0; i < cap; i++) {
         arr.AddLast(i);
       }

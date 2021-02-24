@@ -41,7 +41,7 @@ namespace Common.DataTypes {
         }
       }
 
-      sb.Append("]");
+      sb.Append("]<>");
 
       return sb.ToString();
     }

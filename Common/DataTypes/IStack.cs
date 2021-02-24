@@ -11,7 +11,5 @@ namespace Common.DataTypes {
     public bool IsEmpty { get; }
 
     public int Size { get; }
-
-    public int Capacity { get; }
   }
 }

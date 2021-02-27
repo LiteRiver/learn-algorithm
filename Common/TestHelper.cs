@@ -58,14 +58,16 @@ namespace Common {
           throw new SystemException("Sort algorithm is not correctly implemented");
         }
 
-        var ts = stopwatch.Elapsed;
-        var elapsed = String.Format(
-          "{0:00}:{1:00}:{2:00}.{3:00}",
-          ts.Hours, ts.Minutes, ts.Seconds,
-          ts.Milliseconds / 10);
-
-        Console.WriteLine("data size: {0:n0}, elapsed: {1}", data.Length, elapsed);
+        Console.WriteLine("data size: {0:n0}, elapsed: {1}", data.Length, FormatElapsed(stopwatch.Elapsed));
       }
+    }
+
+    public static string FormatElapsed(TimeSpan ts) {
+      return string.Format(
+        "{0:00}:{1:00}:{2:00}.{3:000}",
+        ts.Hours, ts.Minutes, ts.Seconds,
+        ts.Milliseconds);
+
     }
   }
 }

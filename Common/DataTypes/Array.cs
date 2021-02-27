@@ -159,8 +159,8 @@ namespace Common.DataTypes {
       }
     }
 
-    private void Resize(int newSize) {
-      var newData = new T[newSize];
+    private void Resize(int newCapacity) {
+      var newData = new T[newCapacity];
 
       for (var i = 0; i < Size; i++) {
         newData[i] = data[i];

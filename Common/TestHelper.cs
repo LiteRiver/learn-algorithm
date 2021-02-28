@@ -63,10 +63,7 @@ namespace Common {
     }
 
     public static string FormatElapsed(TimeSpan ts) {
-      return string.Format(
-        "{0:00}:{1:00}:{2:00}.{3:000}",
-        ts.Hours, ts.Minutes, ts.Seconds,
-        ts.Milliseconds);
+      return string.Format("{0} s", ts.TotalMilliseconds / 1000.0);
 
     }
   }

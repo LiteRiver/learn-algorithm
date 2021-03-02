@@ -1,0 +1,23 @@
+{
+  "name": "learn-algorithm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiteRiver/learn-algorithm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiteRiver/learn-algorithm/issues"
+  },
+  "homepage": "https://github.com/LiteRiver/learn-algorithm#readme",
+  "devDependencies": {
+    "@semantic-release/changelog": "github:semantic-release/changelog",
+    "semantic-release": "^17.4.0"
+  }
+}

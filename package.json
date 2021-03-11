@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "commit": "cz"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,13 @@
     "@semantic-release/changelog": "github:semantic-release/changelog",
     "@semantic-release/git": "github:semantic-release/git",
     "@semantic-release/github": "^7.2.0",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "^3.3.0",
     "semantic-release": "^17.4.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

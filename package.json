@@ -18,6 +18,8 @@
   "homepage": "https://github.com/LiteRiver/learn-algorithm#readme",
   "devDependencies": {
     "@semantic-release/changelog": "github:semantic-release/changelog",
+    "@semantic-release/git": "github:semantic-release/git",
+    "@semantic-release/github": "^7.2.0",
     "semantic-release": "^17.4.0"
   }
 }

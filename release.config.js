@@ -11,5 +11,7 @@ module.exports = {
         "changelogFile": 'docs/CHANGELOG.md'
       }
     ],
+    '@semantic-release/git',
   ],
+  repositoryUrl: 'git@github.com:LiteRiver/learn-algorithm.git'
 };

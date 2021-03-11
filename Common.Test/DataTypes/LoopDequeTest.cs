@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Common.Test {
+namespace Common.Test.DataTypes {
   public class LoopDequeTest {
     [Test]
     public void DecreaseIndexTest() {

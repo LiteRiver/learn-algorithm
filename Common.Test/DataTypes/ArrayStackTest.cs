@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using Common.DataTypes;
 
-namespace Common.Test {
+namespace Common.Test.DataTypes {
   public class ArrayStackTest {
     [Test]
     public void PushAndPop() {

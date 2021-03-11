@@ -2,7 +2,7 @@ using System;
 using NUnit.Framework;
 using Common.DataTypes;
 
-namespace Common.Test {
+namespace Common.Test.DataTypes {
   public class ArrayTest {
     [SetUp]
     public void Setup() {

@@ -96,6 +96,16 @@ namespace Common.Test.DataTypes {
         Assert.AreEqual(arr[index], i);
         index++;
       }
+
+      Assert.AreEqual(arr[0], list[0]);
+      Assert.AreEqual(arr[0], list.First);
+      Assert.AreEqual(arr[4], list[4]);
+      Assert.AreEqual(arr[list.Size - 1], list[arr.Length - 1]);
+      Assert.AreEqual(arr[list.Size - 1], list.Last);
+
+      Assert.IsTrue(list.Contains(100));
+      Assert.IsTrue(list.Contains(999));
+      Assert.IsFalse(list.Contains(101));
     }
   }
 }

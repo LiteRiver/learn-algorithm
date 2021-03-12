@@ -4,50 +4,41 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Common.DataTypes {
-  public class LinkedList<T>: IEnumerable<T> {
-    private Node head;
+  public class LinkedList<T> : IEnumerable<T> {
+    private Node dummyHead;
 
     public int Size { get; private set; }
+
+    public LinkedList() {
+      dummyHead = new Node();
+    }
 
     public void Insert(int index, T value) {
       if (index < 0 || index > Size) {
         throw new ArgumentOutOfRangeException(nameof(index), "index is our of range");
       }
 
-      if (index == 0) {
-        head = new Node(value, head);
-      } else {
-        var prev = head;
-        for (var i = 1; i < index; i++) {
-          prev = prev.Next;
-        }
-
-        prev.Next = new Node(value, prev.Next);
+      var prev = dummyHead;
+      for (var i = 0; i < index; i++) {
+        prev = prev.Next;
       }
+      prev.Next = new Node(value, prev.Next);
       Size++;
     }
 
     public T RemoveAt(int index) {
-      if (index < 0 || index > Size) {
+      if (index < 0 || index > Size - 1) {
         throw new ArgumentOutOfRangeException(nameof(index), "index is our of range");
       }
 
-      Node cur;
-
-      if (index == 0) {
-        var v = head.Value;
-        head = head.Next;
-        Size--;
-        return v;
-      }
-
-      Node prev = head;
-      for (var i = 1; i < index; i++) {
+      Node prev = dummyHead;
+      for (var i = 0; i < index; i++) {
         prev = prev.Next;
       }
 
-      cur = prev.Next;
+      var cur = prev.Next;
       prev.Next = cur.Next;
+      cur.Next = null; // Set the next Node of current Node to null
       Size--;
       return cur.Value;
     }
@@ -68,13 +59,29 @@ namespace Common.DataTypes {
       return RemoveAt(Size - 1);
     }
 
+    public T First => this[0];
+
+    public T Last => this[Size - 1];
+
+    public bool IsEmpty => Size == 0;
+
+    public bool Contains(T value) {
+      foreach(var v in this) {
+        if (v.Equals(value)) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+
     public T this[int index] {
       get {
         if (index < 0 || index > Size - 1) {
           throw new ArgumentOutOfRangeException(nameof(index), "index is out of range");
         }
 
-        var cur = head;
+        var cur = dummyHead.Next;
         for (var i = 0; i < index; i++) {
           cur = cur.Next;
         }
@@ -87,7 +94,7 @@ namespace Common.DataTypes {
           throw new ArgumentOutOfRangeException(nameof(index), "index is out of range");
         }
 
-        var cur = head;
+        var cur = dummyHead.Next;
         for (var i = 0; i < index; i++) {
           cur = cur.Next;
         }
@@ -99,8 +106,8 @@ namespace Common.DataTypes {
     public override string ToString() {
       var sb = new StringBuilder();
       sb.Append("LinkedList: ");
-      
-      foreach(var v in this) {
+
+      foreach (var v in this) {
         sb.AppendFormat("{0}->", v);
       }
 
@@ -154,7 +161,7 @@ namespace Common.DataTypes {
         }
 
         if (CurrentNode == null) {
-          CurrentNode = LinkedList.head;
+          CurrentNode = LinkedList.dummyHead.Next;
           Current = CurrentNode.Value;
           return true;
         }
